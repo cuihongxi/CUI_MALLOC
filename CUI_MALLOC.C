@@ -1,4 +1,4 @@
-#include "CUI_MALLCO.H"
+#include "CUI_MALLOC.H"
 
 CUI_MallcoType  CUI_MallcoArray[MALLCO_MAXSIZE/MALLCO_UNIT];            //申请数组
 unsigned char indexMallco[MALLCO_MAXSIZE/MALLCO_UNIT/8] = {0};          //索引表

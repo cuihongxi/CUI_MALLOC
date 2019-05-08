@@ -7,8 +7,8 @@
 */
 
 
-#ifndef     __CUI_MALLCO_H
-#define     __CUI_MALLCO_H
+#ifndef     __CUI_MALLOC_H
+#define     __CUI_MALLOC_H
 
 
 #include "CUIGUI_UDATA.H"
