@@ -1,6 +1,6 @@
 /******************************************************************
 *文件名:公共头文件
-*创建者:探长科技，www.explorersoftware.taobao.com
+*创建者:崔洪玺
 *创建时间:2017年8月9日14:07:03
 *文件说明:动态分配内存
 
@@ -17,8 +17,8 @@
 
 
 
-#define     MALLCO_UNIT       64                      //分配的最小单位
-#define     MALLCO_MAXSIZE    50*16*MALLCO_UNIT       //分配最大内存空间，必须是MALLCO_UNIT*8的整数倍,51200字节
+#define     MALLCO_UNIT       64                      	//分配的最小单位
+#define     MALLCO_MAXSIZE    (100*MALLCO_UNIT*8)       //分配最大内存空间，必须是MALLCO_UNIT*8的整数倍,51200字节
 
 
 #if   DEBUG_MALLCO_LEVEL >0
