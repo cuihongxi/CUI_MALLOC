@@ -36,10 +36,10 @@
 typedef struct
 {
   u8  array[MALLCO_UNIT];
-}CUI_MallcoType;
+}CUI_MALLOCType;
 
 
-u8* CUI_Mallco(u32  leng_th);                   //申请内存
-Flag_Status  FreeCUI_Mallco(u8* mallco);        //释放内存
+u8* CUI_MALLOC(u32  leng_th);                   //申请内存
+Flag_Status  FreeCUI_MALLOC(u8* mallco);        //释放内存
 //u32 GetNumMalloc(u8* mallco);                   //获取该malloc的数量
 #endif

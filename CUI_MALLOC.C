@@ -1,6 +1,6 @@
 #include "CUI_MALLOC.H"
 
-CUI_MallcoType  CUI_MallcoArray[MALLCO_MAXSIZE/MALLCO_UNIT];            //申请数组
+CUI_MALLOCType  CUI_MALLOCArray[MALLCO_MAXSIZE/MALLCO_UNIT];            //申请数组
 unsigned char indexMallco[MALLCO_MAXSIZE/MALLCO_UNIT/8] = {0};          //索引表
 
 /************************************************************************************
@@ -11,11 +11,11 @@ unsigned char indexMallco[MALLCO_MAXSIZE/MALLCO_UNIT/8] = {0};          //索引表
 *-创建者	：蓬莱市博硕电子科技
 */
 
-u8* CUI_Mallco(u32  leng_th)
+u8* CUI_MALLOC(u32  leng_th)
 {
       u32 length = 0 ,length_counter = 0;
       u32 i = 0;
-      u8* array = &CUI_MallcoArray[0].array[0];  //保持没分配变量的起始位置
+      u8* array = &CUI_MALLOCArray[0].array[0];  //保持没分配变量的起始位置
       u32 m = 0;        //保存索引表序号,或总数组的序号
       u8 n = 0;         //保存索引表中8 bit的位置。或总数组中.array[n]
 
@@ -39,7 +39,7 @@ u8* CUI_Mallco(u32  leng_th)
                         if(length_counter == 0) //第一次找到这个位置
                         {
                                     
-                              array = &(CUI_MallcoArray[i*8+j].array[0]);      //保存指针
+                              array = &(CUI_MALLOCArray[i*8+j].array[0]);      //保存指针
                               m = i;
                               n = j;
   
@@ -47,7 +47,7 @@ u8* CUI_Mallco(u32  leng_th)
                         length_counter ++;
                         if(length_counter == length)                    //找到足够的内存
                         {
-                              MALLCO_Log("Find first side:array = CUI_MallcoArray[%d]\r\n",m*8+n);
+                              MALLCO_Log("Find first side:array = CUI_MALLOCArray[%d]\r\n",m*8+n);
 
                               //标记1
                                 while(length != 2)
@@ -98,7 +98,7 @@ u8* CUI_Mallco(u32  leng_th)
 *-创建者	：蓬莱市博硕电子科技
 */
 
-Flag_Status    FreeCUI_Mallco(u8* mallco)
+Flag_Status    FreeCUI_MALLOC(u8* mallco)
 {
       //获取位置
       u32   i; //索引表项
@@ -106,8 +106,8 @@ Flag_Status    FreeCUI_Mallco(u8* mallco)
       
       if(mallco != 0)
       {
-            i = (mallco - &(CUI_MallcoArray[0].array[0]))/MALLCO_UNIT/8;
-            j = (mallco - &(CUI_MallcoArray[0].array[0]))/MALLCO_UNIT%8; 
+            i = (mallco - &(CUI_MALLOCArray[0].array[0]))/MALLCO_UNIT/8;
+            j = (mallco - &(CUI_MALLOCArray[0].array[0]))/MALLCO_UNIT%8; 
  
       MALLCO_Log("Free Mallco :indexMallco[%d].[%d]\r\n",i,j);
    
