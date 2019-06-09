@@ -15,14 +15,14 @@
 #define     __CUI_MALLOC_H
 
 
-#include "CUIGUI_UDATA.H"
+#include "UDATA.H"
 
 #define     DEBUG_Malloc_LEVEL  2  // 调试开关
 
 #define			Malloc_MINI				4												// 小字节分配的最小单元
 #define			Malloc_MINIINDEX		31										// 索引数，以字节位数减一，7,15,32
 #define     Malloc_UNIT       (Malloc_MINI*Malloc_MINIINDEX+8)        // 大字节分配的最小单元
-#define     Malloc_MAXSIZE    40*8*Malloc_UNIT       // 分配最大内存空间，必须是Malloc_UNIT*8的整数倍,51200字节
+#define     Malloc_MAXSIZE    150*8*Malloc_UNIT       // 分配最大内存空间，必须是Malloc_UNIT*8的整数倍
 
 
 #if   DEBUG_Malloc_LEVEL >0
@@ -43,7 +43,7 @@ u8* pNext;									// 指向下一个小字节池地址
 u32 index;									// 索引表						
 }MiniMallocStr;
 
-u8* CUI_MALLOC(u32  leng_th);                   // 申请内存
-Flag_Status  FreeCUI_MALLOC(u8* Malloc);        // 释放内存
+void* CUI_MALLOC(u32  leng_th);                   // 申请内存
+Flag_Status  FreeCUI_MALLOC(void* Malloc);        // 释放内存
 // u32 GetNumMalloc(u8* Malloc);                   // 获取该malloc的数量
 #endif
